@@ -1,0 +1,155 @@
+{
+ "cash": 0.0,
+ "positions": {
+  "AMD": {
+   "shares": 1.4122798085373136,
+   "entry": 552.9307729276103,
+   "entry_date": "2026-09-24",
+   "high": 552.9307729276103,
+   "last_px": 552.9307729276103
+  },
+  "MSFT": {
+   "shares": 3.4283278298460975,
+   "entry": 437.5310864210256,
+   "entry_date": "2026-09-24",
+   "high": 437.5310864210256,
+   "last_px": 437.5310864210256
+  },
+  "ENI.MI": {
+   "shares": 61.53846153846154,
+   "entry": 24.375,
+   "entry_date": "2026-09-24",
+   "high": 24.375,
+   "last_px": 24.375
+  },
+  "AAPL": {
+   "shares": 5.081767036701674,
+   "entry": 295.17291705162,
+   "entry_date": "2026-09-24",
+   "high": 295.17291705162,
+   "last_px": 295.17291705162
+  },
+  "ISP.MI": {
+   "shares": 223.08149986703307,
+   "entry": 6.723999977111816,
+   "entry_date": "2026-09-24",
+   "high": 6.723999977111816,
+   "last_px": 6.723999977111816
+  },
+  "RACE.MI": {
+   "shares": 4.159157147887094,
+   "entry": 360.6499938964844,
+   "entry_date": "2026-09-24",
+   "high": 360.6499938964844,
+   "last_px": 360.6499938964844
+  },
+  "NVDA": {
+   "shares": 7.04835319122454,
+   "entry": 197.33844844642266,
+   "entry_date": "2026-09-24",
+   "high": 197.33844844642266,
+   "last_px": 197.33844844642266
+  },
+  "V": {
+   "shares": 0.9686846870542805,
+   "entry": 323.3440370259103,
+   "entry_date": "2026-09-24",
+   "high": 323.3440370259103,
+   "last_px": 323.3440370259103
+  }
+ },
+ "trades": [
+  {
+   "date": "2026-09-24",
+   "ticker": "AMD",
+   "side": "COMPRA",
+   "shares": 1.4123,
+   "price": 552.9308,
+   "value": 780.89,
+   "why": "punteggio +0.79 — Trend (medie mobili) ▲",
+   "name": "AMD"
+  },
+  {
+   "date": "2026-09-24",
+   "ticker": "MSFT",
+   "side": "COMPRA",
+   "shares": 3.4283,
+   "price": 437.5311,
+   "value": 1500.0,
+   "why": "punteggio +0.76 — Trend (medie mobili) ▲, Momentum 3 mesi ▲",
+   "name": "Microsoft"
+  },
+  {
+   "date": "2026-09-24",
+   "ticker": "ENI.MI",
+   "side": "COMPRA",
+   "shares": 61.5385,
+   "price": 24.375,
+   "value": 1500.0,
+   "why": "punteggio +0.76 — Trend (medie mobili) ▲, Momentum 3 mesi ▲",
+   "name": "Eni"
+  },
+  {
+   "date": "2026-09-24",
+   "ticker": "AAPL",
+   "side": "COMPRA",
+   "shares": 5.0818,
+   "price": 295.1729,
+   "value": 1500.0,
+   "why": "punteggio +0.75 — Trend (medie mobili) ▲, Momentum 3 mesi ▲",
+   "name": "Apple"
+  },
+  {
+   "date": "2026-09-24",
+   "ticker": "ISP.MI",
+   "side": "COMPRA",
+   "shares": 223.0815,
+   "price": 6.724,
+   "value": 1500.0,
+   "why": "punteggio +0.71 — Trend (medie mobili) ▲, Momentum 3 mesi ▲",
+   "name": "Intesa Sanpaolo"
+  },
+  {
+   "date": "2026-09-24",
+   "ticker": "RACE.MI",
+   "side": "COMPRA",
+   "shares": 4.1592,
+   "price": 360.65,
+   "value": 1500.0,
+   "why": "punteggio +0.69 — Trend (medie mobili) ▲, Momentum 3 mesi ▲",
+   "name": "Ferrari"
+  },
+  {
+   "date": "2026-09-24",
+   "ticker": "NVDA",
+   "side": "COMPRA",
+   "shares": 7.0484,
+   "price": 197.3384,
+   "value": 1390.91,
+   "why": "punteggio +0.66 — Trend (medie mobili) ▲, Momentum 3 mesi ▲",
+   "name": "Nvidia"
+  },
+  {
+   "date": "2026-09-24",
+   "ticker": "V",
+   "side": "COMPRA",
+   "shares": 0.9687,
+   "price": 323.344,
+   "value": 313.22,
+   "why": "punteggio +0.65 — Trend (medie mobili) ▲, Momentum 3 mesi ▲",
+   "name": "Visa"
+  }
+ ],
+ "history": [
+  [
+   "2026-09-24",
+   9985.02,
+   10000.0
+  ]
+ ],
+ "start": "2026-09-24",
+ "bench_start": {
+  "SPY": 674.1210624250781,
+  "FTSEMIB.MI": 51543.44921875
+ }
+}
