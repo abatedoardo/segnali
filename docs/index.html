@@ -68,6 +68,7 @@ td.r,th.r{text-align:right}.scroll{overflow-x:auto}
 
 <section class="tab" id="sig">
 <div class="card"><h2>Punteggi di oggi</h2>
+<input id="q" type="search" placeholder="Cerca titolo o ticker…" style="width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;margin-bottom:8px">
 <div class="filters" id="mf"></div>
 <div class="sub" style="margin-bottom:6px">Punteggio da −1 a +1. Sopra <b id="bth"></b> il portfolio compra, sotto <b id="sth"></b> vende.</div>
 <div id="signals"></div></div>
@@ -96,7 +97,7 @@ const $=s=>document.querySelector(s),css=v=>getComputedStyle(document.documentEl
 const eur=v=>v==null?'–':v.toLocaleString('it-IT',{style:'currency',currency:'EUR',maximumFractionDigits:0});
 const pct=(v,d=1)=>v==null?'–':`<span class="${v>=0?'pos':'neg'}">${v>=0?'▲ +':'▼ '}${v.toFixed(d)}%</span>`;
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-let D,mkt='Tutti',showAll=false;
+let D,mkt='Tutti',showAll=false,showAllSig=false;
 document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{
  document.querySelectorAll('#nav button,.tab').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#'+b.dataset.t).classList.add('on');draw();
  try{localStorage.setItem('tab',b.dataset.t)}catch(e){}});
@@ -148,14 +149,20 @@ function signals(){
  const ms=['Tutti','USA','Italia','ETF','In portfolio'];
  $('#mf').innerHTML=ms.map(m=>`<button class="${m==mkt?'on':''}">${m}</button>`).join('');
  $('#mf').querySelectorAll('button').forEach(b=>b.onclick=()=>{mkt=b.textContent;signals()});
+ $('#q').oninput=signals;
  $('#bth').textContent='+'+D.brain.params.buy_th;$('#sth').textContent=D.brain.params.sell_th;
- const L=D.signals.filter(s=>mkt=='Tutti'||(mkt=='In portfolio'?s.held:s.market==mkt));
+ const q=($('#q').value||'').trim().toLowerCase();
+ let L=D.signals.filter(s=>(mkt=='Tutti'||(mkt=='In portfolio'?s.held:s.market==mkt))&&(!q||s.name.toLowerCase().includes(q)||s.ticker.toLowerCase().includes(q)));
+ const tot=L.length;if(!q&&!showAllSig&&tot>30)L=[...L.slice(0,20),...L.slice(-10)];
  $('#signals').innerHTML=L.map(s=>{const w=Math.abs(s.score)*50,c=s.score>=0?css('--good'):css('--bad');
   return `<div class="sig"><div><span class="n">${esc(s.name)}</span> <span class="chip">${s.ticker}</span>${s.held?'<span class="chip">in portfolio</span>':''}
   <div class="sub">${s.reasons.map(esc).join(' · ')||'nessun segnale forte'} · RSI ${s.rsi??'–'} · 20gg ${s.ret20??'–'}%${s.ml_prob!=null?` · ML ${(s.ml_prob*100).toFixed(0)}%`:''}</div>
   <div class="news">${s.news.map(n=>`<a href="${esc(n.link)}" target="_blank" rel="noopener">${n.sent>0.15?'▲':n.sent<-0.15?'▼':'•'} ${esc(n.title)}</a>`).join('')}</div></div>
   <div class="sc ${s.score>=0?'pos':'neg'}">${s.score>=0?'+':''}${s.score.toFixed(2)}</div>
   <div class="bar"><i style="background:${c};left:${s.score>=0?50:50-w}%;width:${w}%"></i></div></div>`}).join('')||'<p class="empty">Nessun titolo.</p>';
+ if(L.length<tot){const i=20;$('#signals').insertAdjacentHTML('beforeend','<div class="filters" style="margin-top:8px"><button id="allsig">Mostra tutti i '+tot+' titoli</button></div>');
+  $('#allsig').onclick=()=>{showAllSig=true;signals()};
+  $('#signals').children[i]?.insertAdjacentHTML('beforebegin','<div class="sub" style="padding:10px 0;text-align:center">··· i 10 punteggi più bassi ···</div>')}
 }
 function brain(){
  const B=D.brain,keys=Object.keys(D.labels),cols=['--s1','--s2','--s3','--s4','--s5','--s6','--s7','--s8'].map(css);

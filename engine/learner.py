@@ -194,7 +194,7 @@ def learn(brain, feats, prices, px_eur, log):
 
     # 3) punteggio finale storico (per backtest)
     def final_score(weights, scale, lo, hi):
-        rs = (rule_raw(feats, weights).loc[lo:hi] / (2 * scale)).clip(-1, 1)
+        rs = np.tanh(rule_raw(feats, weights).loc[lo:hi] / (2 * scale))
         if ml_oos is not None and brain["ml"]["blend"] > 0:
             ms = ((ml_oos.reindex(rs.index) - 0.5) * 4).clip(-1, 1)
             b = brain["ml"]["blend"]

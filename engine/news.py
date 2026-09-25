@@ -79,18 +79,22 @@ def _gemini_scores(headlines):
               "dell'azione citata nei prossimi giorni, da -1 (molto negativo) a 1 (molto positivo); 0 se irrilevante "
               "o gia' noto. Rispondi SOLO con un array JSON di numeri, nello stesso ordine.\n\n"
               + "\n".join(f"{i+1}. [{h['ticker']}] {h['title']}" for i, h in enumerate(headlines)))
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{config.GEMINI_MODEL}:generateContent?key={key}"
-    try:
-        r = requests.post(url, json={"contents": [{"parts": [{"text": prompt}]}],
-                                     "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}},
-                          timeout=60)
-        r.raise_for_status()
-        txt = r.json()["candidates"][0]["content"]["parts"][0]["text"]
-        vals = json.loads(re.search(r"\[.*\]", txt, re.S).group(0))
-        if len(vals) == len(headlines):
-            return [max(-1.0, min(1.0, float(v))) for v in vals]
-    except Exception as e:
-        print("Gemini non disponibile, uso il dizionario:", str(e)[:120])
+    body = {"contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}}
+    for model in config.GEMINI_MODELS:  # se un modello non esiste più, provo il successivo
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+        try:
+            r = requests.post(url, json=body, headers={"x-goog-api-key": key}, timeout=90)
+            if r.status_code in (400, 404):
+                continue
+            r.raise_for_status()
+            txt = r.json()["candidates"][0]["content"]["parts"][0]["text"]
+            vals = json.loads(re.search(r"\[.*\]", txt, re.S).group(0))
+            if len(vals) == len(headlines):
+                return [max(-1.0, min(1.0, float(v))) for v in vals]
+        except Exception as e:
+            print(f"Gemini ({model}) non disponibile, uso il dizionario:", str(e)[:120])
+            return None
     return None
 
 
@@ -127,7 +131,7 @@ def fetch_news(seen):
                 fp = _fingerprint(it["title"])
                 if fp not in uniq:  # la stessa notizia su 50 siti conta una volta
                     uniq[fp] = it
-        heads = sorted(uniq.values(), key=lambda x: x["date"], reverse=True)[:12]
+        heads = sorted(uniq.values(), key=lambda x: x["date"], reverse=True)[:8]
         for h in heads:
             fp = _fingerprint(h["title"])
             h["new"] = fp not in seen
@@ -136,12 +140,22 @@ def fetch_news(seen):
         per_ticker[t] = heads
         all_heads += heads
 
-    scores = None
-    if all_heads:
-        batch = all_heads[:300]
-        scores = _gemini_scores(batch)
-        for i, h in enumerate(all_heads):
-            h["sent"] = scores[i] if scores and i < len(batch) else lexicon_score(h["title"])
+    engine = "dizionario"
+    for h in all_heads:
+        h["sent"] = lexicon_score(h["title"])
+    if os.environ.get("GEMINI_API_KEY") and all_heads:
+        import time
+        # le notizie nuove prima; a blocchi da 150, max 6 chiamate (limiti del piano gratuito)
+        order = sorted(all_heads, key=lambda h: (not h["new"], -h["date"].timestamp()))[:900]
+        for i in range(0, len(order), 150):
+            chunk = order[i:i + 150]
+            sc = _gemini_scores(chunk)
+            if sc is None:
+                break
+            for h, v in zip(chunk, sc):
+                h["sent"] = v
+            engine = "gemini"
+            time.sleep(6)
 
     result = {}
     for t, heads in per_ticker.items():
@@ -163,5 +177,5 @@ def fetch_news(seen):
     old = (now - timedelta(days=10)).isoformat()
     for k in [k for k, v in seen.items() if v < old]:
         del seen[k]
-    result["_engine"] = "gemini" if scores else "dizionario"
+    result["_engine"] = engine
     return result

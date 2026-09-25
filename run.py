@@ -30,7 +30,7 @@ def score_today(brain, feats, news):
         sig = {s: float(last[s]) for s in config.SIGNALS}
         sig["news"] = float(news.get(t, {}).get("score", 0.0))
         raw = sum(w[s] * sig[s] for s in config.SIGNALS)
-        rows[t] = {"sig": sig, "rule": float(np.clip(raw / (2 * scale), -1, 1)), "contrib":
+        rows[t] = {"sig": sig, "rule": float(np.tanh(raw / (2 * scale))), "contrib":
                    {s: w[s] * sig[s] / (2 * scale) for s in config.SIGNALS}, "last": last}
     ml = {}
     for d in set(date_of.values()):
