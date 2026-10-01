@@ -108,6 +108,17 @@
    "rel_strength": 0.0,
    "news": 0.0,
    "ml": 0.082
+  },
+  {
+   "date": "2026-10-01",
+   "momentum": 0.1158,
+   "trend": 0.7644,
+   "mean_reversion": -0.1198,
+   "breakout": -0.0,
+   "volume": -0.0,
+   "rel_strength": 0.0,
+   "news": 0.0,
+   "ml": 0.082
   }
  ],
  "journal": [
