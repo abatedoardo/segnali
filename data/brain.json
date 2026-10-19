@@ -27,12 +27,12 @@
   "news": null
  },
  "weights": {
-  "momentum": 0.037,
-  "trend": 0.2446,
-  "mean_reversion": -0.0383,
+  "momentum": 0.0296,
+  "trend": 0.1957,
+  "mean_reversion": -0.0306,
   "breakout": -0.0,
   "volume": -0.0,
-  "rel_strength": 0.68,
+  "rel_strength": 0.7441,
   "news": 0.0
  },
  "rule_scale": 0.40885,
@@ -250,6 +250,17 @@
    "breakout": -0.0,
    "volume": -0.0,
    "rel_strength": 0.68,
+   "news": 0.0,
+   "ml": 0.082
+  },
+  {
+   "date": "2026-10-19",
+   "momentum": 0.0296,
+   "trend": 0.1957,
+   "mean_reversion": -0.0306,
+   "breakout": -0.0,
+   "volume": -0.0,
+   "rel_strength": 0.7441,
    "news": 0.0,
    "ml": 0.082
   }
