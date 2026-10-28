@@ -6,7 +6,7 @@
   "breakout": 0.0001,
   "volume": -0.0017,
   "rel_strength": 0.0253,
-  "news": 0.0165
+  "news": 0.022
  },
  "n": {
   "momentum": 1074,
@@ -15,7 +15,7 @@
   "breakout": 1071,
   "volume": 1053,
   "rel_strength": 1074,
-  "news": 19
+  "news": 20
  },
  "hit": {
   "momentum": 0.498,
@@ -27,12 +27,12 @@
   "news": null
  },
  "weights": {
-  "momentum": 0.0008,
-  "trend": 0.0054,
-  "mean_reversion": -0.0009,
+  "momentum": 0.0006,
+  "trend": 0.0043,
+  "mean_reversion": -0.0007,
   "breakout": 0.0,
   "volume": -0.0,
-  "rel_strength": 0.993,
+  "rel_strength": 0.9943,
   "news": 0.0
  },
  "rule_scale": 0.43296,
@@ -69,7 +69,8 @@
   "2026-10-15",
   "2026-10-16",
   "2026-10-19",
-  "2026-10-20"
+  "2026-10-20",
+  "2026-10-21"
  ],
  "weight_history": [
   {
@@ -333,6 +334,17 @@
    "breakout": 0.0,
    "volume": -0.0,
    "rel_strength": 0.993,
+   "news": 0.0,
+   "ml": 0.052
+  },
+  {
+   "date": "2026-10-28",
+   "momentum": 0.0006,
+   "trend": 0.0043,
+   "mean_reversion": -0.0007,
+   "breakout": 0.0,
+   "volume": -0.0,
+   "rel_strength": 0.9943,
    "news": 0.0,
    "ml": 0.052
   }
@@ -865,21 +877,21 @@
   ]
  },
  "live_ic": {
-  "momentum": 0.0621,
-  "trend": -0.0808,
-  "mean_reversion": -0.159,
-  "breakout": 0.1072,
-  "volume": 0.0537,
-  "rel_strength": 0.2619,
-  "news": 0.0165
+  "momentum": 0.0551,
+  "trend": -0.0769,
+  "mean_reversion": -0.1512,
+  "breakout": 0.0966,
+  "volume": 0.0424,
+  "rel_strength": 0.2525,
+  "news": 0.022
  },
  "n_live": {
-  "momentum": 19,
-  "trend": 19,
-  "mean_reversion": 19,
-  "breakout": 9,
-  "volume": 5,
-  "rel_strength": 19,
-  "news": 19
+  "momentum": 20,
+  "trend": 20,
+  "mean_reversion": 20,
+  "breakout": 10,
+  "volume": 6,
+  "rel_strength": 20,
+  "news": 20
  }
 }
