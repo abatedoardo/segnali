@@ -28,11 +28,11 @@
  },
  "weights": {
   "momentum": 0.0002,
-  "trend": 0.0018,
-  "mean_reversion": -0.0003,
+  "trend": 0.0014,
+  "mean_reversion": -0.0002,
   "breakout": 0.0,
   "volume": -0.0,
-  "rel_strength": 0.9977,
+  "rel_strength": 0.9982,
   "news": 0.0
  },
  "rule_scale": 0.43296,
@@ -340,17 +340,6 @@
    "ml": 0.052
   },
   {
-   "date": "2026-10-29",
-   "momentum": 0.0004,
-   "trend": 0.0027,
-   "mean_reversion": -0.0005,
-   "breakout": 0.0,
-   "volume": -0.0,
-   "rel_strength": 0.9964,
-   "news": 0.0,
-   "ml": 0.052
-  },
-  {
    "date": "2026-10-28",
    "momentum": 0.0003,
    "trend": 0.0022,
@@ -369,6 +358,17 @@
    "breakout": 0.0,
    "volume": -0.0,
    "rel_strength": 0.9977,
+   "news": 0.0,
+   "ml": 0.052
+  },
+  {
+   "date": "2026-10-29",
+   "momentum": 0.0002,
+   "trend": 0.0014,
+   "mean_reversion": -0.0002,
+   "breakout": 0.0,
+   "volume": -0.0,
+   "rel_strength": 0.9982,
    "news": 0.0,
    "ml": 0.052
   }
