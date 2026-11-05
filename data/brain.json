@@ -376,17 +376,6 @@
    "ml": 0.0
   },
   {
-   "date": "2026-11-03",
-   "momentum": 0.0001,
-   "trend": 0.0003,
-   "mean_reversion": -0.0001,
-   "breakout": 0.0,
-   "volume": -0.0,
-   "rel_strength": 0.9995,
-   "news": 0.0,
-   "ml": 0.0
-  },
-  {
    "date": "2026-11-02",
    "momentum": 0.0001,
    "trend": 0.0002,
@@ -399,6 +388,17 @@
   },
   {
    "date": "2026-11-04",
+   "momentum": 0.0001,
+   "trend": 0.0002,
+   "mean_reversion": -0.0001,
+   "breakout": 0.0,
+   "volume": -0.0,
+   "rel_strength": 0.9997,
+   "news": 0.0,
+   "ml": 0.0
+  },
+  {
+   "date": "2026-11-03",
    "momentum": 0.0001,
    "trend": 0.0002,
    "mean_reversion": -0.0001,
