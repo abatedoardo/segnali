@@ -32,8 +32,8 @@
   "mean_reversion": -0.0,
   "breakout": 0.0,
   "volume": -0.0,
-  "rel_strength": 0.9663,
-  "news": 0.0337
+  "rel_strength": 0.9606,
+  "news": 0.0393
  },
  "rule_scale": 0.43838,
  "params": {
@@ -436,17 +436,6 @@
    "ml": 0.0
   },
   {
-   "date": "2026-11-10",
-   "momentum": 0.0,
-   "trend": 0.0001,
-   "mean_reversion": -0.0,
-   "breakout": 0.0,
-   "volume": -0.0,
-   "rel_strength": 0.9851,
-   "news": 0.0148,
-   "ml": 0.0
-  },
-  {
    "date": "2026-11-09",
    "momentum": 0.0,
    "trend": 0.0001,
@@ -466,6 +455,17 @@
    "volume": -0.0,
    "rel_strength": 0.9663,
    "news": 0.0337,
+   "ml": 0.0
+  },
+  {
+   "date": "2026-11-10",
+   "momentum": 0.0,
+   "trend": 0.0001,
+   "mean_reversion": -0.0,
+   "breakout": 0.0,
+   "volume": -0.0,
+   "rel_strength": 0.9606,
+   "news": 0.0393,
    "ml": 0.0
   }
  ],
