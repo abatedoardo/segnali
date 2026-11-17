@@ -32,8 +32,8 @@
   "mean_reversion": -0.0,
   "breakout": 0.0,
   "volume": -0.0,
-  "rel_strength": 0.8273,
-  "news": 0.1727
+  "rel_strength": 0.8036,
+  "news": 0.1964
  },
  "rule_scale": 0.38289,
  "params": {
@@ -500,8 +500,8 @@
    "mean_reversion": -0.0,
    "breakout": 0.0,
    "volume": -0.0,
-   "rel_strength": 0.8273,
-   "news": 0.1727,
+   "rel_strength": 0.8036,
+   "news": 0.1964,
    "ml": 0.0
   }
  ],
@@ -637,6 +637,10 @@
   {
    "date": "2026-11-16",
    "text": "Peso notizie +0.14 → +0.17 dopo 33 giorni valutati (IC +0.061)"
+  },
+  {
+   "date": "2026-11-16",
+   "text": "Peso notizie +0.17 → +0.20 dopo 33 giorni valutati (IC +0.061)"
   }
  ],
  "backtest": {
