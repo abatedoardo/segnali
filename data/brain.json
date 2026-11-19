@@ -6,7 +6,7 @@
   "breakout": -0.009,
   "volume": -0.0072,
   "rel_strength": 0.0213,
-  "news": 0.0652
+  "news": 0.0645
  },
  "n": {
   "momentum": 1074,
@@ -15,7 +15,7 @@
   "breakout": 1071,
   "volume": 1053,
   "rel_strength": 1074,
-  "news": 35
+  "news": 36
  },
  "hit": {
   "momentum": 0.497,
@@ -32,8 +32,8 @@
   "mean_reversion": -0.0,
   "breakout": 0.0,
   "volume": -0.0,
-  "rel_strength": 0.6644,
-  "news": 0.3356
+  "rel_strength": 0.6421,
+  "news": 0.3579
  },
  "rule_scale": 0.38289,
  "params": {
@@ -85,7 +85,8 @@
   "2026-11-06",
   "2026-11-09",
   "2026-11-10",
-  "2026-11-11"
+  "2026-11-11",
+  "2026-11-12"
  ],
  "weight_history": [
   {
@@ -527,6 +528,17 @@
    "rel_strength": 0.6644,
    "news": 0.3356,
    "ml": 0.0
+  },
+  {
+   "date": "2026-11-19",
+   "momentum": 0.0,
+   "trend": 0.0,
+   "mean_reversion": -0.0,
+   "breakout": 0.0,
+   "volume": -0.0,
+   "rel_strength": 0.6421,
+   "news": 0.3579,
+   "ml": 0.0
   }
  ],
  "journal": [
@@ -681,6 +693,10 @@
   {
    "date": "2026-11-18",
    "text": "Peso notizie +0.31 → +0.34 dopo 35 giorni valutati (IC +0.065)"
+  },
+  {
+   "date": "2026-11-19",
+   "text": "Peso notizie +0.34 → +0.36 dopo 36 giorni valutati (IC +0.065)"
   }
  ],
  "backtest": {
@@ -1121,21 +1137,21 @@
   ]
  },
  "live_ic": {
-  "momentum": 0.0142,
-  "trend": -0.0781,
+  "momentum": 0.0196,
+  "trend": -0.0716,
   "mean_reversion": -0.067,
-  "breakout": -0.0058,
-  "volume": -0.0118,
-  "rel_strength": 0.1548,
-  "news": 0.0652
+  "breakout": -0.0105,
+  "volume": -0.0084,
+  "rel_strength": 0.1615,
+  "news": 0.0645
  },
  "n_live": {
-  "momentum": 35,
-  "trend": 35,
-  "mean_reversion": 35,
-  "breakout": 25,
-  "volume": 21,
-  "rel_strength": 35,
-  "news": 35
+  "momentum": 36,
+  "trend": 36,
+  "mean_reversion": 36,
+  "breakout": 26,
+  "volume": 22,
+  "rel_strength": 36,
+  "news": 36
  }
 }
