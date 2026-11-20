@@ -32,8 +32,8 @@
   "mean_reversion": -0.0,
   "breakout": 0.0,
   "volume": -0.0,
-  "rel_strength": 0.6421,
-  "news": 0.3579
+  "rel_strength": 0.6243,
+  "news": 0.3757
  },
  "rule_scale": 0.38289,
  "params": {
@@ -536,8 +536,8 @@
    "mean_reversion": -0.0,
    "breakout": 0.0,
    "volume": -0.0,
-   "rel_strength": 0.6421,
-   "news": 0.3579,
+   "rel_strength": 0.6243,
+   "news": 0.3757,
    "ml": 0.0
   }
  ],
